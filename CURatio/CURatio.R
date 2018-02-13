@@ -1,16 +1,22 @@
-#####
+# Description -------------------------------------------------------------
+# In this script, we just include our CURatio functions
+# The first one "CURatio" is for calculating CURatios.
+# The second one is for the case when we have multi-representatives
+# of one gene. The "dupl" function could duplicate the a spacific gene
+# in a given species tree.
+
 CURatio<-function(stdTree){
   library(ape)
   library(phangorn)
   # In this part, we define some variables to save the value
   b<-c() # It is the sum of branch length of the tree without a consensus tree.
-         # You can change the topology of the tree.
+  # You can change the topology of the tree.
   B<-c() # It is the sum of branch length of the tree with a consensus tree.
-         # You cannot change the topology of the tree.
+  # You cannot change the topology of the tree.
   dist<-c() # It is the Robinson-Foulds distance
   output<-c() # This is the ratios
   fileListNew<-c() # This is the new name list to save the name we need.
-                   # Since we want to remove the 
+  # Since we want to remove the 
   # Given a consensus tree, this stdTree is getted from the user. 
   # Since the tree have no branch lengths, so we calculate the branch lengths
   # using Grafen's method (Grafen, 1989).
@@ -97,4 +103,24 @@ CURatio<-function(stdTree){
   result.mix<-data.frame(fileListNew[!position],output[!position],dist[!position],stringsAsFactors=FALSE)
   # We return the final dataframe data set at last.
   return(result.mix)
+}
+
+dupl <- function(tip_label,consen_path){
+  # tip_label: The tip lable you want to duplicate
+  # consen_path: The directory of your consensus tree.
+  if(require(ape)){
+    dupl_text <- readLines(consen_path)
+    if(grepl(tip_label, dupl_text)){
+      new_pattern <- paste("(",tip_label,",",tip_label,")",sep = "")
+      new_lines <- gsub(tip_label,new_pattern,dupl_text)
+      conTree <- read.tree(text = new_lines)
+      return(conTree)
+    }
+    else{
+      warning("No tip label matched in the tree.")
+    }
+  }
+  else{
+    warning("This function requires 'ape' package.")
+  }
 }
