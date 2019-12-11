@@ -22,7 +22,7 @@ CURatio <- function(phyData, consTree){
     
     ratio <- B/b
   }
-  else if(2 < length(phyData) && length(phyData) < length(stdTree$tip.label)){
+  else if(3 < length(phyData) && length(phyData) < length(stdTree$tip.label)){
     dm <- dist.hamming(phyData) 
     treeNJ <- NJ(dm)
     # Computing the likelihood of a phylogenetic tree given a sequence alignment and a model.
