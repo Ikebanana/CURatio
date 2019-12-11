@@ -22,7 +22,7 @@ CURatio<-function(stdTree){
   # using Grafen's method (Grafen, 1989).
   stan.tree<-compute.brlen(stdTree) 
   # The tip labels of the consensus tree
-  stan.name<-Tree$tip.label
+  stan.name<-stdTree$tip.label
   # Reading data set from the current work station
   fileList<-list.files(path='.',pattern='.fasta')
   
