@@ -1,7 +1,7 @@
 # CURatio
 
 ## Description
-These are the coded we used to calculate the ratios. The constraint tree we used is the 65% consensus of presumed housekeeping genes (those with orthologues in all 12 genomes) on the JC model.
+All the program in this repository is for CURatio, which uses ratios of total branch lengths in gene trees to help identify phylogenetic outliers in a given set of ortholog groups from multiple genomes. An advantage of CURatio over other methods is that genes absent from and/or duplicated in some genomes can be included in the analysis. The constraint tree is the 65% consensus of presumed housekeeping genes (those with orthologues in all 12 genomes) on the JC model.
 
 ## Algorithm
 1. Calculating the sum of branch lengths of the tree without consensus tree, **b**.
@@ -17,3 +17,9 @@ These are the coded we used to calculate the ratios. The constraint tree we used
 3. Calculating the ratio 
 
       **Ratio = B/b**
+## R package required for CURatio
+* ape
+* phangorn
+
+## Relevant Citations
+Saitou, Naruya, and Masatoshi Nei. "The neighbor-joining method: a new method for reconstructing phylogenetic trees." Molecular biology and evolution 4.4 (1987): 406-425.
