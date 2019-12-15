@@ -18,7 +18,7 @@ All the programs in this repository is for CURatio, which uses ratios of total b
 
       **Ratio = B/b**
       
-## R package required for CURatio
+## Required R Packages
 * ape
 * phangorn
 
@@ -27,7 +27,7 @@ All the programs in this repository is for CURatio, which uses ratios of total b
 library(ape)
 library(phangorn)
 
-phyData <- read.phyDat(file="./data/eas-ccl-wg_10006_2_2_1_2_2-dna-trimmed.fasta",format='fasta',type='DNA')
+phyData <- read.phyDat(file="./data/eas-ccl-wg-trimmed.fasta",format='fasta',type='DNA')
 consTree <- read.tree("./consensusTree_0.65.txt")
 
 ratio <- CURatio(phyData, consTree)
