@@ -35,3 +35,6 @@ ratio <- CURatio(phyData, consTree)
 
 ## Relevant Citations
 Saitou, Naruya, and Masatoshi Nei. "The neighbor-joining method: a new method for reconstructing phylogenetic trees." Molecular biology and evolution 4.4 (1987): 406-425.
+
+## Questions and Feedback
+For questions and concerns, please contact Qiwen Kang, qiwen.kang@uky.edu.
