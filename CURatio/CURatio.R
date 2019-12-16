@@ -1,4 +1,7 @@
-  
+# Input
+#  phyData: phyDat format data
+# consTree: consensus tree
+
 CURatio <- function(phyData, consTree){
   stan.tree <- compute.brlen(consTree) 
   # The tip labels of the consensus tree
